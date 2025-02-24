@@ -34,15 +34,6 @@ while (true)
         h = Convert.ToDouble(Console.ReadLine());
     }
 
-while (true)
-    if (h < b)
-    { break; }
-
-    else
-    {
-        Console.WriteLine("шаг не может быть больше b");
-        h = Convert.ToDouble(Console.ReadLine());
-    }
 
 
 for (double x = a; x <= b; x += h)
@@ -68,6 +59,7 @@ Console.WriteLine($"Знаков изменено: {opposite}");
 Console.WriteLine($"Количество точек: {pointCount}");
 Console.WriteLine($"Максимальное значение функции: {maxY}");
 Console.WriteLine($"Минимальное значение функции: {minY}");
+
 
 
 
