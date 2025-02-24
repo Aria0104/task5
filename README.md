@@ -5,6 +5,7 @@ double maxY = double.MinValue;
 double minY = double.MaxValue;
 double opposite = 0;
 double y1 = 0;
+int pointCount = 0;
 
 Console.WriteLine("введите точку а");
 double a = Convert.ToInt32(Console.ReadLine());
@@ -12,7 +13,7 @@ Console.WriteLine("введите точку b");
 double b = Convert.ToInt32(Console.ReadLine());
 
 while (true)
-    if (b >= a)
+    if (b > a)
     { break; }
 
     else
@@ -33,11 +34,23 @@ while (true)
         h = Convert.ToDouble(Console.ReadLine());
     }
 
+while (true)
+    if (h < b)
+    { break; }
+
+    else
+    {
+        Console.WriteLine("шаг не может быть больше b");
+        h = Convert.ToDouble(Console.ReadLine());
+    }
+
 
 for (double x = a; x <= b; x += h)
 {
     double y = y = Math.Round(Math.Cos(x * x) + (Math.Sin(x) * Math.Sin(x)), 2);
     Console.WriteLine($"x = {x}, y = {y}");
+
+    pointCount++;
 
     if (y > maxY) maxY = y;
     if (y < minY) minY = y;
@@ -50,10 +63,12 @@ for (double x = a; x <= b; x += h)
 
 }
 
-int balalala = (int)((b - a) / h) + 1;
 
 Console.WriteLine($"Знаков изменено: {opposite}");
-Console.WriteLine($"Количество точек: {balalala}");
+Console.WriteLine($"Количество точек: {pointCount}");
 Console.WriteLine($"Максимальное значение функции: {maxY}");
 Console.WriteLine($"Минимальное значение функции: {minY}");
+
+
+
 ```
