@@ -1,11 +1,11 @@
 ```C#
 using System;
 
-double maxY = double.MinValue;
-double minY = double.MaxValue;
+double maxY = double.MinValue; // начальное значение для поиска максимуму функции y
+double minY = double.MaxValue; // начальное значение для поиска минимума функции y
 double opposite = 0;
 double y1 = 0;
-int pointCount = 0;
+int point = 0;
 
 Console.WriteLine("введите точку а");
 double a = Convert.ToInt32(Console.ReadLine());
@@ -41,14 +41,14 @@ for (double x = a; x <= b; x += h)
     double y = y = Math.Round(Math.Cos(x * x) + (Math.Sin(x) * Math.Sin(x)), 2);
     Console.WriteLine($"x = {x}, y = {y}");
 
-    pointCount++;
+    { point++; } // Увеличение счетчика точек
 
     if (y > maxY) maxY = y;
     if (y < minY) minY = y;
 
     {
         if ((y1 < 0 && y > 0) || (y1 > 0 && y < 0))
-        { opposite++; }
+        { opposite++; } // Если знак изменился, увеличиваем счетчик изменений знака
         y1 = y;
     }
 
@@ -56,9 +56,9 @@ for (double x = a; x <= b; x += h)
 
 
 Console.WriteLine($"Знаков изменено: {opposite}");
-Console.WriteLine($"Количество точек: {pointCount}");
+Console.WriteLine($"Количество точек: {point}");
 Console.WriteLine($"Максимальное значение функции: {maxY}");
-Console.WriteLine($"Минимальное значение функции: {minY}");
+Console.WriteLine($"Минимальное значение функции: {minY}"); 
 
 
 
